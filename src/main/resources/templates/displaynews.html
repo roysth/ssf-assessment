@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto News of the Day</title>
+</head>
+<body>
+    <form
+        action="#"
+        th:action="@{/articleList}"
+        th:object="${articleList}"
+        method="post">
+        <input type = "submit" value = "save"/>
+        <ul th:each = "articleList: *{articleList}">
+            <li>
+                <span th:object =  "${articleList}">
+                    <span>ID: <span th:text = "{id}"></span>
+                    <br>
+                    <span>Title: <span th:text = "{title}"></span>
+                    <br>
+                    <span>Body: <span th:text = "{body}"></span>
+                    <br>
+                    <span>Categories: <span th:text = "{categories}"></span>
+                    <br>
+                    <span>Tags: <span th:text = "{tags}"></span>
+                    <br>
+                    <span>Published: <span th:text = "{publishedOn}"></span>
+                    <br>
+                    <span>Link: <span th:text = "{url}"></span>
+                    <br>
+                    <img th:src ="*{imageUrl}"> 
+                    <br>
+                    <input type = "checkbox" th:field = "*{Save}"/>
+                </span>
+            </li>
+
+        </ul>
+        
+    </form>
+    
+</body>
+</html>
+
+    
+
